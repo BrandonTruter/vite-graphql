@@ -18,6 +18,29 @@ defineProps({
   </div>
 </template>
 
+<script>
+import gql from 'graphql-tag';
+
+const POSTS_QUERY = gql`query Posts {
+    posts {
+      title
+    }
+  }
+`;
+
+export default {
+  data () {
+    return {
+      posts: [],
+    }
+  },
+  // Apollo-specific options
+  apollo: {
+    posts: POSTS_QUERY,
+  },
+}
+</script>
+
 <style scoped>
 h1 {
   font-weight: 500;

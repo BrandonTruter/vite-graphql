@@ -1,11 +1,16 @@
-import Vue from 'vue'
+import Vue from "vue";
 
-import App from './App.vue'
-import router from './router'
+import App from "./App.vue";
+import router from "./router";
+import VueApollo from "vue-apollo";
+import { createProvider } from "./provider";
 
-import './assets/main.css'
+import "./assets/main.css";
+
+Vue.use(VueApollo);
 
 new Vue({
   router,
-  render: (h) => h(App)
-}).$mount('#app')
+  apolloProvider: createProvider(),
+  render: (h) => h(App),
+}).$mount("#app");
